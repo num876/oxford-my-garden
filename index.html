@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="hero.jpg">
+    <link rel="preload" href="hero-mobile.jpg" as="image" media="(max-width: 767px)">
+    <link rel="preload" href="hero.jpg" as="image" media="(min-width: 768px)">
     <link rel="preload" as="image" href="logo.jpg">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -38,7 +39,7 @@
 
     <!-- ===== HERO: Full-bleed image, bottom-weighted text ===== -->
     <section class="relative h-[100dvh] min-h-[500px] md:min-h-[600px] overflow-hidden">
-        <img src="hero.jpg" alt="Beautifully landscaped garden" class="absolute inset-0 w-full h-full object-cover animate-ken-burns">
+        <picture class="absolute inset-0 w-full h-full animate-ken-burns"><source media="(max-width: 767px)" srcset="hero-mobile.jpg"><source media="(min-width: 768px)" srcset="hero.jpg"><img src="hero.jpg" alt="Beautifully landscaped garden" class="w-full h-full object-cover"></picture>
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 md:via-black/30 to-transparent z-10"></div>
 
         <!-- Floating leaves -->
