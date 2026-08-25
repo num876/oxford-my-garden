@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx @tailwindcss/cli -i ./input.css -o ./styles.css --minify"
+    "build": "npx @tailwindcss/cli -i ./input.css -o ./styles.css --minify && mkdir -p public && cp index.html styles.css *.jpg public/"
   },
   "repository": {
     "type": "git",
