@@ -488,31 +488,32 @@
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section id="contact" class="py-24 bg-white">
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-heading text-4xl sm:text-5xl text-earth-900 mb-4">Let's Get Your Garden Growing.</h2>
-                <div class="w-16 h-0.5 bg-earth-400 mx-auto mb-6"></div>
-                <p class="text-lg text-earth-500">Ready to clear out the overgrowth or start a new planting project? Get in touch today.</p>
+            <div class="text-center mb-10 md:mb-16 reveal">
+                <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl text-earth-900 mb-4">Let's Get Your Garden Growing.</h2>
+                <div class="w-16 h-0.5 bg-earth-400 mx-auto mb-5 md:mb-6"></div>
+                <p class="text-base sm:text-lg text-earth-500">Ready to clear out the overgrowth or start a new planting project? Get in touch today.</p>
             </div>
 
             <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
                 <!-- Form Column -->
-                <div class="lg:w-3/5 bg-earth-50 border border-earth-200 p-8 lg:p-12 reveal">
-                    <h3 class="font-heading text-2xl text-earth-900 mb-8">Send an Enquiry</h3>
-                    <form action="#" method="POST" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="lg:w-3/5 bg-earth-50 border border-earth-200 p-6 sm:p-8 lg:p-12 reveal">
+                    <h3 class="font-heading text-xl sm:text-2xl text-earth-900 mb-6 sm:mb-8">Send an Enquiry</h3>
+                    <form action="#" method="POST" class="space-y-5 sm:space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                             <div>
-                                <label for="name" class="block text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Name</label>
+                                <label for="name" class="block text-xs sm:text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Name</label>
                                 <input type="text" id="name" name="name" class="w-full border border-earth-300 p-3 bg-white focus:outline-none focus:border-earth-600 focus:ring-1 focus:ring-earth-600 transition" required>
                             </div>
                             <div>
-                                <label for="phone" class="block text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Phone Number</label>
+                                <label for="phone" class="block text-xs sm:text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Phone Number</label>
                                 <input type="tel" id="phone" name="phone" class="w-full border border-earth-300 p-3 bg-white focus:outline-none focus:border-earth-600 focus:ring-1 focus:ring-earth-600 transition" required>
                             </div>
                         </div>
                         <div>
-                            <label for="service" class="block text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Service Required</label>
+                            <label for="service" class="block text-xs sm:text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Service Required</label>
                             <select id="service" name="service" class="w-full border border-earth-300 p-3 bg-white focus:outline-none focus:border-earth-600 focus:ring-1 focus:ring-earth-600 transition">
                                 <option>Garden Tidying & Planting</option>
                                 <option>Overgrown Clearance</option>
@@ -524,46 +525,46 @@
                             </select>
                         </div>
                         <div>
-                            <label for="message" class="block text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Message</label>
+                            <label for="message" class="block text-xs sm:text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Message</label>
                             <textarea id="message" name="message" rows="4" class="w-full border border-earth-300 p-3 bg-white focus:outline-none focus:border-earth-600 focus:ring-1 focus:ring-earth-600 transition" required></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-earth-900 text-white font-bold uppercase tracking-wider py-4 hover:bg-earth-800 transition">
+                        <button type="submit" class="w-full bg-earth-900 text-white font-bold uppercase tracking-wider py-3 sm:py-4 hover:bg-earth-800 transition">
                             Send Enquiry
                         </button>
                     </form>
                 </div>
 
                 <!-- Info Column -->
-                <div class="lg:w-2/5 flex flex-col gap-8 reveal reveal-delay-200">
-                    <div class="bg-earth-900 text-white p-8 lg:p-10 flex-grow shadow-lg">
-                        <h3 class="font-heading text-2xl mb-8">Contact Details</h3>
-                        <div class="space-y-8">
+                <div class="lg:w-2/5 flex flex-col gap-6 sm:gap-8 reveal reveal-delay-200">
+                    <div class="bg-earth-900 text-white p-6 sm:p-8 lg:p-10 flex-grow shadow-lg">
+                        <h3 class="font-heading text-xl sm:text-2xl mb-6 sm:mb-8">Contact Details</h3>
+                        <div class="space-y-6 sm:space-y-8">
                             <div class="flex items-start gap-4">
-                                <i class="fas fa-phone-alt text-earth-400 text-lg mt-1"></i>
+                                <i class="fas fa-phone-alt text-earth-400 text-base sm:text-lg mt-1"></i>
                                 <div>
-                                    <p class="text-xs text-earth-300 font-bold uppercase tracking-wider mb-1">Call Us</p>
-                                    <a href="tel:07941093343" class="text-xl font-bold text-white hover:text-earth-400 transition">07941 093343</a>
+                                    <p class="text-[10px] sm:text-xs text-earth-300 font-bold uppercase tracking-wider mb-1">Call Us</p>
+                                    <a href="tel:07941093343" class="text-lg sm:text-xl font-bold text-white hover:text-earth-400 transition">07941 093343</a>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
-                                <i class="fas fa-map-marker-alt text-earth-400 text-lg mt-1"></i>
+                                <i class="fas fa-map-marker-alt text-earth-400 text-base sm:text-lg mt-1"></i>
                                 <div>
-                                    <p class="text-xs text-earth-300 font-bold uppercase tracking-wider mb-1">Location</p>
-                                    <p class="text-lg text-earth-50">72 The Slade, Headington<br>Oxford OX3 7DX</p>
+                                    <p class="text-[10px] sm:text-xs text-earth-300 font-bold uppercase tracking-wider mb-1">Location</p>
+                                    <p class="text-base sm:text-lg text-earth-50">72 The Slade, Headington<br>Oxford OX3 7DX</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
-                                <i class="fas fa-clock text-earth-400 text-lg mt-1"></i>
+                                <i class="fas fa-clock text-earth-400 text-base sm:text-lg mt-1"></i>
                                 <div>
-                                    <p class="text-xs text-earth-300 font-bold uppercase tracking-wider mb-1">Hours</p>
-                                    <p class="text-lg text-earth-50">Opens 7:00 AM</p>
+                                    <p class="text-[10px] sm:text-xs text-earth-300 font-bold uppercase tracking-wider mb-1">Hours</p>
+                                    <p class="text-base sm:text-lg text-earth-50">Opens 7:00 AM</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Map -->
-                    <div class="h-64 lg:h-auto lg:flex-grow border border-earth-200 shadow-md">
+                    <div class="h-56 sm:h-64 lg:h-auto lg:flex-grow border border-earth-200 shadow-md">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2469.7547076721595!2d-1.2052445842278453!3d51.75582377967664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876c6b3f7f07c81%3A0xcb7ab30a7d97607a!2s72%20The%20Slade%2C%20Headington%2C%20Oxford%20OX3%207DX%2C%20UK!5e0!3m2!1sen!2sus!4v1689721000000!5m2!1sen!2sus" 
                             class="w-full h-full border-0" 
