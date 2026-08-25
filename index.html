@@ -30,21 +30,37 @@
     <!-- ===== TOPBAR ===== -->
     <header class="bg-earth-950 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
-            <a href="#" class="flex items-center gap-3 leading-tight">
+            <a href="#" class="flex items-center gap-3 leading-tight relative z-50">
                 <img src="logo.jpg" alt="Oxford My Garden Logo" class="h-12 w-12 rounded-full object-cover border-2 border-earth-600">
                 <div>
                     <span class="font-heading text-2xl text-white block">Oxford My Garden</span>
                     <span class="text-[10px] uppercase tracking-[0.35em] text-earth-400 font-bold">Landscaping & Care</span>
                 </div>
             </a>
+            
+            <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
                 <a href="#services" class="text-earth-300 hover:text-white text-sm font-semibold uppercase tracking-wider transition">Services</a>
                 <a href="#reviews" class="text-earth-300 hover:text-white text-sm font-semibold uppercase tracking-wider transition">Reviews</a>
                 <a href="#contact" class="text-earth-300 hover:text-white text-sm font-semibold uppercase tracking-wider transition">Contact</a>
-                <a href="tel:+447941093343" class="border-2 border-earth-400 text-white px-5 py-2 text-sm font-bold uppercase tracking-wider hover:bg-earth-400 hover:text-earth-950 transition-all">
-                    <i class="fas fa-phone-alt mr-2 text-xs"></i>07941 093343
+                <a href="tel:+447941093343" class="bg-earth-600 text-white px-5 py-2 text-sm font-bold uppercase tracking-wider hover:bg-earth-500 transition shadow-md">
+                    <i class="fas fa-phone-alt mr-2 text-xs"></i> 07941 093343
                 </a>
             </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2 relative z-50 focus:outline-none">
+                <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-earth-950/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 opacity-0 pointer-events-none">
+            <a href="#services" class="mobile-link text-white text-3xl font-heading tracking-wider">Services</a>
+            <a href="#how-it-works" class="mobile-link text-white text-3xl font-heading tracking-wider">How It Works</a>
+            <a href="#reviews" class="mobile-link text-white text-3xl font-heading tracking-wider">Reviews</a>
+            <a href="#faq" class="mobile-link text-white text-3xl font-heading tracking-wider">FAQ</a>
+            <a href="#contact" class="mobile-link text-white text-3xl font-heading tracking-wider">Contact</a>
         </div>
     </header>
 
@@ -536,9 +552,10 @@
         </a>
     </div>
 
-    <!-- ===== SCROLL ANIMATIONS SCRIPT ===== -->
+    <!-- ===== SCROLL ANIMATIONS & MOBILE MENU SCRIPT ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Reveal
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -549,14 +566,45 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Optional: stop observing once revealed
-                        // observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
             const revealElements = document.querySelectorAll('.reveal');
             revealElements.forEach(el => observer.observe(el));
+
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                } else {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                    document.body.style.overflow = ''; // Restore scrolling
+                }
+            }
+
+            menuBtn.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a link
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMenuOpen) toggleMenu();
+                });
+            });
         });
     </script>
 </body>
