@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oxford My Garden | Landscaping & Garden Care</title>
+    <meta name="description" content="Oxford My Garden provides professional landscaping, garden clearance, tree cutting, and maintenance services in Oxford and Headington. Reliable, high-quality, and local.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Oxford My Garden | Landscaping & Garden Care">
+    <meta property="og:description" content="Professional landscaping, garden clearance, and maintenance services in Oxford and Headington.">
+    <meta property="og:image" content="https://oxford-my-garden-two.vercel.app/hero.jpg">
+    <meta property="og:url" content="https://oxford-my-garden-two.vercel.app/">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +41,7 @@
                 <a href="#services" class="text-earth-300 hover:text-white text-sm font-semibold uppercase tracking-wider transition">Services</a>
                 <a href="#reviews" class="text-earth-300 hover:text-white text-sm font-semibold uppercase tracking-wider transition">Reviews</a>
                 <a href="#contact" class="text-earth-300 hover:text-white text-sm font-semibold uppercase tracking-wider transition">Contact</a>
-                <a href="tel:07941093343" class="border-2 border-earth-400 text-white px-5 py-2 text-sm font-bold uppercase tracking-wider hover:bg-earth-400 hover:text-earth-950 transition-all">
+                <a href="tel:+447941093343" class="border-2 border-earth-400 text-white px-5 py-2 text-sm font-bold uppercase tracking-wider hover:bg-earth-400 hover:text-earth-950 transition-all">
                     <i class="fas fa-phone-alt mr-2 text-xs"></i>07941 093343
                 </a>
             </nav>
@@ -65,7 +76,7 @@
                 <a href="https://wa.me/4407941093343" target="_blank" class="bg-[#25D366] hover:bg-[#1ebe57] text-white px-7 py-4 font-bold text-lg flex items-center justify-center gap-3 shadow-lg transition">
                     <i class="fab fa-whatsapp text-2xl"></i> Message Us
                 </a>
-                <a href="tel:07941093343" class="bg-white/15 hover:bg-white/25 backdrop-blur-md border-2 border-white/50 text-white px-7 py-4 font-bold text-lg flex items-center justify-center gap-3 transition">
+                <a href="tel:+447941093343" class="bg-white/15 hover:bg-white/25 backdrop-blur-md border-2 border-white/50 text-white px-7 py-4 font-bold text-lg flex items-center justify-center gap-3 transition">
                     <i class="fas fa-phone-alt"></i> 07941 093343
                 </a>
             </div>
@@ -424,7 +435,7 @@
                 <!-- Form Column -->
                 <div class="lg:w-3/5 bg-earth-50 border border-earth-200 p-6 sm:p-8 lg:p-12 reveal">
                     <h3 class="font-heading text-xl sm:text-2xl text-earth-900 mb-6 sm:mb-8">Send an Enquiry</h3>
-                    <form action="#" method="POST" class="space-y-5 sm:space-y-6">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="space-y-5 sm:space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                             <div>
                                 <label for="name" class="block text-xs sm:text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Name</label>
@@ -434,6 +445,10 @@
                                 <label for="phone" class="block text-xs sm:text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Phone Number</label>
                                 <input type="tel" id="phone" name="phone" class="w-full border border-earth-300 p-3 bg-white focus:outline-none focus:border-earth-600 focus:ring-1 focus:ring-earth-600 transition" required>
                             </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs sm:text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full border border-earth-300 p-3 bg-white focus:outline-none focus:border-earth-600 focus:ring-1 focus:ring-earth-600 transition" required>
                         </div>
                         <div>
                             <label for="service" class="block text-xs sm:text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Service Required</label>
@@ -466,7 +481,7 @@
                                 <i class="fas fa-phone-alt text-earth-400 text-base sm:text-lg mt-1"></i>
                                 <div>
                                     <p class="text-[10px] sm:text-xs text-earth-300 font-bold uppercase tracking-wider mb-1">Call Us</p>
-                                    <a href="tel:07941093343" class="text-lg sm:text-xl font-bold text-white hover:text-earth-400 transition">07941 093343</a>
+                                    <a href="tel:+447941093343" class="text-lg sm:text-xl font-bold text-white hover:text-earth-400 transition">07941 093343</a>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
@@ -502,7 +517,7 @@
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="bg-earth-950 text-earth-300 py-10 text-center reveal">
+    <footer class="bg-earth-950 text-earth-300 pt-10 pb-24 md:pb-10 text-center reveal">
         <div class="flex justify-center mb-3">
             <img src="logo.jpg" alt="Oxford My Garden Logo" class="h-14 w-14 rounded-full object-cover border-2 border-earth-600" loading="lazy" decoding="async">
         </div>
@@ -513,7 +528,7 @@
 
     <!-- ===== MOBILE STICKY CTA ===== -->
     <div class="fixed bottom-0 left-0 right-0 bg-earth-950 border-t border-earth-700 p-3 flex gap-3 md:hidden z-50">
-        <a href="tel:07941093343" class="flex-1 bg-earth-700 text-white py-3 font-bold text-center flex items-center justify-center gap-2">
+        <a href="tel:+447941093343" class="flex-1 bg-earth-700 text-white py-3 font-bold text-center flex items-center justify-center gap-2">
             <i class="fas fa-phone-alt"></i> Call Now
         </a>
         <a href="https://wa.me/4407941093343" target="_blank" class="flex-1 bg-[#25D366] text-white py-3 font-bold text-center flex items-center justify-center gap-2">
