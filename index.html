@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxford My Garden | Landscaping & Garden Care</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['"DM Serif Display"', 'serif'],
+                        body: ['"Nunito Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        earth: {
+                            950: '#2C1B0E',
+                            900: '#3E2723',
+                            800: '#4E342E',
+                            700: '#5D4037',
+                            600: '#6D4C41',
+                            500: '#795548',
+                            400: '#A1887F',
+                            300: '#BCAAA4',
+                            200: '#D7CCC8',
+                            100: '#EFEBE9',
+                            50:  '#FAF8F6',
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ken Burns */
+        @keyframes kenBurns {
+            0%   { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .animate-ken-burns { animation: kenBurns 25s ease-in-out infinite alternate; }
+
+        /* Fade in up */
+        @keyframes fadeInUp {
+            0%   { opacity: 0; transform: translateY(24px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .anim-up { opacity: 0; animation: fadeInUp 0.7s ease-out forwards; }
+
+        /* Floating leaves */
+        @keyframes leafDrift {
+            0%   { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+            50%  { transform: translateY(-50px) rotate(180deg); opacity: 0.25; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        .leaf-float {
+            position: absolute;
+            color: rgba(139, 90, 43, 0.3);
+            animation: leafDrift linear infinite;
+            pointer-events: none;
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-100 { transition-delay: 100ms; }
+        .reveal-delay-200 { transition-delay: 200ms; }
+        .reveal-delay-300 { transition-delay: 300ms; }
+        .reveal-delay-400 { transition-delay: 400ms; }
+
+        /* Trust strip shimmer */
+        @keyframes shimmer {
+            0%   { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .shimmer-bg {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 4s linear infinite;
+        }
+    </style>
+</head>
+<body class="font-body text-gray-800 bg-earth-50 antialiased">
+
+    <!-- ===== TOPBAR ===== -->
+    <header class="bg-earth-950 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <a href="#" class="flex items-center gap-3 leading-tight">
+                <img src="logo.jpg" alt="Oxford My Garden Logo" class="h-12 w-12 rounded-full object-cover border-2 border-earth-600">
+                <div>
+                    <span class="font-heading text-2xl text-white block">Oxford My Garden</span>
+                    <span class="text-[10px] uppercase tracking-[0.35em] text-earth-400 font-bold">Landscaping & Care</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#services" class="text-earth-300 hover:text-white text-sm font-semibold uppercase tracking-wider transition">Services</a>
+                <a href="#reviews" class="text-earth-300 hover:text-white text-sm font-semibold uppercase tracking-wider transition">Reviews</a>
+                <a href="#contact" class="text-earth-300 hover:text-white text-sm font-semibold uppercase tracking-wider transition">Contact</a>
+                <a href="tel:07941093343" class="border-2 border-earth-400 text-white px-5 py-2 text-sm font-bold uppercase tracking-wider hover:bg-earth-400 hover:text-earth-950 transition-all">
+                    <i class="fas fa-phone-alt mr-2 text-xs"></i>07941 093343
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO: Full-bleed image, bottom-weighted text ===== -->
+    <section class="relative h-screen overflow-hidden">
+        <img src="hero.jpg" alt="Beautifully landscaped garden" class="absolute inset-0 w-full h-full object-cover animate-ken-burns">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10"></div>
+
+        <!-- Floating leaves -->
+        <i class="leaf-float fas fa-leaf text-lg" style="bottom:10%;left:15%;animation-duration:6s;"></i>
+        <i class="leaf-float fas fa-leaf text-sm" style="bottom:5%;left:45%;animation-duration:8s;animation-delay:2s;"></i>
+        <i class="leaf-float fas fa-leaf text-xl" style="bottom:15%;left:70%;animation-duration:7s;animation-delay:1s;"></i>
+        <i class="leaf-float fas fa-leaf text-xs" style="bottom:8%;left:30%;animation-duration:9s;animation-delay:4s;"></i>
+        <i class="leaf-float fas fa-leaf" style="bottom:12%;left:85%;animation-duration:5s;animation-delay:3s;"></i>
+
+        <div class="relative z-20 h-full flex flex-col justify-end pb-20 lg:pb-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+            <h2 class="font-heading text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.1] mb-6 anim-up" style="animation-delay:0.1s;">
+                The Garden You've<br>Always Wanted.
+            </h2>
+            <p class="text-lg sm:text-xl text-white max-w-lg mb-4 anim-up" style="animation-delay:0.3s;">
+                From overgrown mess to pristine paradise — we handle the hard work. Reliable, professional, and serving Oxford & Headington.
+            </p>
+            <p class="text-sm text-white font-semibold uppercase tracking-wider mb-10 anim-up" style="animation-delay:0.4s;">
+                <i class="fas fa-map-marker-alt mr-1"></i> Proudly serving Oxford & surrounding areas
+            </p>
+
+            <!-- CTAs: sharp rectangle + WhatsApp — not rounded-full pills like LJS -->
+            <div class="flex flex-col sm:flex-row gap-4 mb-8 anim-up" style="animation-delay:0.5s;">
+                <a href="https://wa.me/4407941093343" target="_blank" class="bg-[#25D366] hover:bg-[#1ebe57] text-white px-7 py-4 font-bold text-lg flex items-center justify-center gap-3 shadow-lg transition">
+                    <i class="fab fa-whatsapp text-2xl"></i> Message Us
+                </a>
+                <a href="tel:07941093343" class="bg-white/15 hover:bg-white/25 backdrop-blur-md border-2 border-white/50 text-white px-7 py-4 font-bold text-lg flex items-center justify-center gap-3 transition">
+                    <i class="fas fa-phone-alt"></i> 07941 093343
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3 anim-up" style="animation-delay:0.7s;">
+                <div class="flex text-white text-sm gap-0.5">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="text-sm font-semibold text-white">5.0 from 73 happy customers</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRUST STRIP ===== -->
+    <div class="bg-earth-900 text-white py-4 relative overflow-hidden">
+        <div class="shimmer-bg absolute inset-0 z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+                <div class="flex items-center gap-3">
+                    <div class="flex text-yellow-400 text-sm gap-0.5">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <span class="font-bold text-lg">5.0</span>
+                    <span class="text-gray-300 text-sm">— 73 Reviews on Google</span>
+                </div>
+                <div class="hidden lg:flex items-center gap-6 text-sm text-gray-300">
+                    <span class="italic">"Great service and experience."</span>
+                    <span class="text-earth-500">•</span>
+                    <span class="italic">"Really pleased with the gardening service."</span>
+                    <span class="text-earth-500">•</span>
+                    <span class="italic">"So grateful for Hatem!"</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ABOUT US ===== -->
+    <section id="about" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Column -->
+                <div class="lg:w-1/2 reveal">
+                    <h2 class="font-heading text-4xl sm:text-5xl text-earth-900 mb-6 leading-tight">Your Local Oxford<br>Landscaping Experts</h2>
+                    <div class="w-16 h-0.5 bg-earth-400 mb-8"></div>
+                    <p class="text-lg text-earth-600 mb-6 leading-relaxed">
+                        At Oxford My Garden, we believe your outdoor space should be a place to relax, not a source of stress. We are a dedicated local team serving Oxford, Headington, and the surrounding areas.
+                    </p>
+                    <p class="text-lg text-earth-600 mb-8 leading-relaxed">
+                        Whether you need a complete garden clearance to tame an overgrown jungle, or precision paving for a new patio, we bring the same level of care, hard work, and reliability to every job. We show up when we say we will, and we leave your property looking pristine.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center gap-2 bg-earth-50 px-4 py-2 border border-earth-200 reveal reveal-delay-100">
+                            <i class="fas fa-check text-earth-600"></i>
+                            <span class="text-sm font-bold uppercase tracking-wider text-earth-800">Free Quotes</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-earth-50 px-4 py-2 border border-earth-200 reveal reveal-delay-200">
+                            <i class="fas fa-check text-earth-600"></i>
+                            <span class="text-sm font-bold uppercase tracking-wider text-earth-800">Fully Insured</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-earth-50 px-4 py-2 border border-earth-200 reveal reveal-delay-300">
+                            <i class="fas fa-check text-earth-600"></i>
+                            <span class="text-sm font-bold uppercase tracking-wider text-earth-800">5-Star Rated</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image Column -->
+                <div class="lg:w-1/2 relative reveal reveal-delay-200">
+                    <div class="absolute inset-0 bg-earth-900 transform translate-x-4 translate-y-4 z-0"></div>
+                    <img src="about.jpg" alt="Gardening tools and flowers" class="relative z-10 w-full h-auto object-cover border-4 border-white shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES: Cards with images and left border accent ===== -->
+    <section id="services" class="py-20 bg-earth-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <i class="fas fa-leaf text-earth-400 text-3xl mb-4"></i>
+                <h2 class="font-heading text-4xl sm:text-5xl text-earth-900 mb-3">What We Do</h2>
+                <p class="text-lg text-earth-500 max-w-2xl mx-auto">Expert landscaping and garden care, tailored to your space.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal">
+                    <div class="h-48 overflow-hidden">
+                        <img src="service-planting.jpg" alt="Garden Tidying & Planting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="border-l-4 border-earth-700 p-6 flex-grow flex flex-col">
+                        <h3 class="font-heading text-2xl text-earth-900 mb-3">Garden Tidying & Planting</h3>
+                        <p class="text-earth-500 leading-relaxed mb-4 flex-grow">
+                            We tidy up messy gardens, plant beautiful new flowers, and advise you on the best ongoing care for a thriving landscape.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal reveal-delay-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="service-clearance.jpg" alt="Overgrown Clearance" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="border-l-4 border-earth-700 p-6 flex-grow flex flex-col">
+                        <h3 class="font-heading text-2xl text-earth-900 mb-3">Overgrown Clearance</h3>
+                        <p class="text-earth-500 leading-relaxed mb-4 flex-grow">
+                            Heavy-duty removal of ivy, thick brambles, and massive overgrowth. We strip back the jungle to reveal your garden's potential.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal reveal-delay-200">
+                    <div class="h-48 overflow-hidden">
+                        <img src="service-tree.jpg" alt="Tree Cutting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="border-l-4 border-earth-700 p-6 flex-grow flex flex-col">
+                        <h3 class="font-heading text-2xl text-earth-900 mb-3">Tree Cutting & Surgery</h3>
+                        <p class="text-earth-500 leading-relaxed mb-4 flex-grow">
+                            Safe and professional tree-cutting, pruning, and branch removal to keep your property safe and your garden looking its best.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal">
+                    <div class="h-48 overflow-hidden">
+                        <img src="service-lawn.jpg" alt="Lawn Care & Maintenance" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="border-l-4 border-earth-700 p-6 flex-grow flex flex-col">
+                        <h3 class="font-heading text-2xl text-earth-900 mb-3">Lawn Care & Maintenance</h3>
+                        <p class="text-earth-500 leading-relaxed mb-4 flex-grow">
+                            Regular mowing, crisp edge defining, and feeding treatments to keep your grass lush, green, and perfectly striped year-round.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal reveal-delay-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="service-hedge.jpg" alt="Hedge Trimming" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="border-l-4 border-earth-700 p-6 flex-grow flex flex-col">
+                        <h3 class="font-heading text-2xl text-earth-900 mb-3">Hedge Trimming</h3>
+                        <p class="text-earth-500 leading-relaxed mb-4 flex-grow">
+                            Precision shaping and regular trimming for boundary hedges and decorative shrubs to maintain clean lines and healthy growth.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal reveal-delay-200">
+                    <div class="h-48 overflow-hidden">
+                        <img src="service-patio.jpg" alt="Patios & Paving" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="border-l-4 border-earth-700 p-6 flex-grow flex flex-col">
+                        <h3 class="font-heading text-2xl text-earth-900 mb-3">Patios & Paving</h3>
+                        <p class="text-earth-500 leading-relaxed mb-4 flex-grow">
+                            High-quality sandstone and block paving installations. We design and lay beautiful, durable patio areas for your outdoor living space.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="py-24 bg-white border-y border-earth-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading text-4xl sm:text-5xl text-earth-900 mb-4">How It Works</h2>
+                <div class="w-16 h-0.5 bg-earth-400 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-px bg-earth-200 z-0 reveal"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 text-center reveal">
+                    <div class="w-24 h-24 mx-auto bg-earth-50 rounded-full border-4 border-white shadow-md flex items-center justify-center mb-6">
+                        <span class="font-heading text-4xl text-earth-800">1</span>
+                    </div>
+                    <h3 class="font-heading text-2xl text-earth-900 mb-3">Get in Touch</h3>
+                    <p class="text-earth-600 leading-relaxed max-w-xs mx-auto">Call or WhatsApp us with details of your garden project or clearance needs.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 text-center reveal reveal-delay-200">
+                    <div class="w-24 h-24 mx-auto bg-earth-50 rounded-full border-4 border-white shadow-md flex items-center justify-center mb-6">
+                        <span class="font-heading text-4xl text-earth-800">2</span>
+                    </div>
+                    <h3 class="font-heading text-2xl text-earth-900 mb-3">Free Site Visit & Quote</h3>
+                    <p class="text-earth-600 leading-relaxed max-w-xs mx-auto">We'll pop by to assess the work required and provide a clear, no-obligation price.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 text-center reveal reveal-delay-400">
+                    <div class="w-24 h-24 mx-auto bg-earth-50 rounded-full border-4 border-white shadow-md flex items-center justify-center mb-6">
+                        <span class="font-heading text-4xl text-earth-800">3</span>
+                    </div>
+                    <h3 class="font-heading text-2xl text-earth-900 mb-3">Garden Transformed</h3>
+                    <p class="text-earth-600 leading-relaxed max-w-xs mx-auto">We arrive on time, get the job done right, and leave your outdoor space looking pristine.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 reveal reveal-delay-400">
+                <a href="#contact" class="inline-block border-2 border-earth-900 text-earth-900 px-8 py-3 font-bold uppercase tracking-wider hover:bg-earth-900 hover:text-white transition-all">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== REVIEWS: Alternating quote layout with watermark quotes ===== -->
+    <section id="reviews" class="py-24 bg-earth-900 text-white overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 relative reveal">
+                <i class="fas fa-star text-earth-700 text-2xl mb-4"></i>
+                <h2 class="font-heading text-4xl sm:text-5xl mb-4">What People Say</h2>
+                <div class="w-16 h-0.5 bg-earth-600 mx-auto"></div>
+            </div>
+
+            <!-- Stacked quote blocks with alternating alignment -->
+            <div class="space-y-16">
+                
+                <!-- Review 1 (Left) -->
+                <div class="md:max-w-xl relative reveal">
+                    <i class="fas fa-quote-left absolute -top-6 -left-6 sm:-top-8 sm:-left-10 text-8xl text-white/5 z-0"></i>
+                    <div class="relative z-10">
+                        <div class="flex text-yellow-500 text-sm mb-4 gap-1">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="font-heading text-2xl sm:text-3xl italic text-earth-50 mb-6 leading-snug border-l-2 border-earth-600 pl-6 sm:pl-8">
+                            "Hatem and his team did fantastic work for me — tidying up my somewhat messy garden, planting some flowers, and advising me on how best to take care of things moving forward..."
+                        </blockquote>
+                        <p class="text-sm font-bold uppercase tracking-[0.2em] text-earth-400 flex items-center gap-2">
+                            <span class="w-6 h-px bg-earth-600 inline-block"></span> K S
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Review 2 (Right) -->
+                <div class="md:max-w-xl md:ml-auto md:text-right relative reveal">
+                    <i class="fas fa-quote-right absolute -top-6 -right-6 sm:-top-8 sm:-right-10 text-8xl text-white/5 z-0"></i>
+                    <div class="relative z-10">
+                        <div class="flex text-yellow-500 text-sm mb-4 gap-1 md:justify-end">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="font-heading text-2xl sm:text-3xl italic text-earth-50 mb-6 leading-snug border-r-0 md:border-r-2 md:border-l-0 border-l-2 border-earth-600 pl-6 sm:pl-0 md:pr-6 sm:pr-8">
+                            "Fantastic team, they solved many of my long-term problems and did such a great job in every aspect from tree-cutting, garden clearance to removal of ivy and brambles. Very reliable..."
+                        </blockquote>
+                        <p class="text-sm font-bold uppercase tracking-[0.2em] text-earth-400 flex items-center md:justify-end gap-2">
+                            Hannah Chen <span class="text-earth-600 hidden md:inline">|</span> <span class="text-earth-500 font-medium">Local Guide</span> <span class="w-6 h-px bg-earth-600 inline-block hidden md:block"></span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Review 3 (Left) -->
+                <div class="md:max-w-xl relative reveal">
+                    <i class="fas fa-quote-left absolute -top-6 -left-6 sm:-top-8 sm:-left-10 text-8xl text-white/5 z-0"></i>
+                    <div class="relative z-10">
+                        <div class="flex text-yellow-500 text-sm mb-4 gap-1">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="font-heading text-2xl sm:text-3xl italic text-earth-50 mb-6 leading-snug border-l-2 border-earth-600 pl-6 sm:pl-8">
+                            "Highly recommended!! Hatem did a great job overall. My garden was quite overgrown and needed a lot of work, and he made a big difference. He was reasonably priced and easy to deal with."
+                        </blockquote>
+                        <p class="text-sm font-bold uppercase tracking-[0.2em] text-earth-400 flex items-center gap-2">
+                            <span class="w-6 h-px bg-earth-600 inline-block"></span> Shayan Fakher
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="py-24 bg-earth-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading text-4xl sm:text-5xl text-earth-900 mb-4">Frequently Asked Questions</h2>
+                <div class="w-16 h-0.5 bg-earth-400 mx-auto"></div>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <details class="group bg-white border border-earth-200 p-6 shadow-sm open:shadow-md transition-all cursor-pointer reveal">
+                    <summary class="font-heading text-xl text-earth-900 list-none flex justify-between items-center">
+                        Do you provide free quotes?
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-earth-400"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-earth-600 leading-relaxed border-t border-earth-100 pt-4">
+                        Yes, we offer free, no-obligation quotes for all projects. We prefer to visit your property in person to assess the garden, understand your needs, and provide an accurate price.
+                    </div>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="group bg-white border border-earth-200 p-6 shadow-sm open:shadow-md transition-all cursor-pointer reveal reveal-delay-100">
+                    <summary class="font-heading text-xl text-earth-900 list-none flex justify-between items-center">
+                        Do you take away the garden waste?
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-earth-400"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-earth-600 leading-relaxed border-t border-earth-100 pt-4">
+                        Absolutely. For clearances, hedge trimming, and tree cutting, we will clear all the green waste and dispose of it responsibly, leaving your garden completely clean and tidy.
+                    </div>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="group bg-white border border-earth-200 p-6 shadow-sm open:shadow-md transition-all cursor-pointer reveal reveal-delay-200">
+                    <summary class="font-heading text-xl text-earth-900 list-none flex justify-between items-center">
+                        Do you do regular maintenance or just one-off jobs?
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-earth-400"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-earth-600 leading-relaxed border-t border-earth-100 pt-4">
+                        We do both. We are happy to tackle massive one-off garden clearances to get things under control, and we also offer regular, scheduled maintenance (mowing, pruning, weeding) to keep it looking perfect.
+                    </div>
+                </details>
+
+                <!-- FAQ 4 -->
+                <details class="group bg-white border border-earth-200 p-6 shadow-sm open:shadow-md transition-all cursor-pointer reveal reveal-delay-300">
+                    <summary class="font-heading text-xl text-earth-900 list-none flex justify-between items-center">
+                        Are you fully insured?
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-earth-400"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-earth-600 leading-relaxed border-t border-earth-100 pt-4">
+                        Yes, Oxford My Garden is fully insured for all landscaping, tree cutting, and maintenance work, giving you complete peace of mind while we work on your property.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading text-4xl sm:text-5xl text-earth-900 mb-4">Let's Get Your Garden Growing.</h2>
+                <div class="w-16 h-0.5 bg-earth-400 mx-auto mb-6"></div>
+                <p class="text-lg text-earth-500">Ready to clear out the overgrowth or start a new planting project? Get in touch today.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
+                <!-- Form Column -->
+                <div class="lg:w-3/5 bg-earth-50 border border-earth-200 p-8 lg:p-12 reveal">
+                    <h3 class="font-heading text-2xl text-earth-900 mb-8">Send an Enquiry</h3>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Name</label>
+                                <input type="text" id="name" name="name" class="w-full border border-earth-300 p-3 bg-white focus:outline-none focus:border-earth-600 focus:ring-1 focus:ring-earth-600 transition" required>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="w-full border border-earth-300 p-3 bg-white focus:outline-none focus:border-earth-600 focus:ring-1 focus:ring-earth-600 transition" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="service" class="block text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Service Required</label>
+                            <select id="service" name="service" class="w-full border border-earth-300 p-3 bg-white focus:outline-none focus:border-earth-600 focus:ring-1 focus:ring-earth-600 transition">
+                                <option>Garden Tidying & Planting</option>
+                                <option>Overgrown Clearance</option>
+                                <option>Tree Cutting & Surgery</option>
+                                <option>Lawn Care & Maintenance</option>
+                                <option>Hedge Trimming</option>
+                                <option>Patios & Paving</option>
+                                <option>Other / General Enquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-bold text-earth-800 mb-2 uppercase tracking-wider">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full border border-earth-300 p-3 bg-white focus:outline-none focus:border-earth-600 focus:ring-1 focus:ring-earth-600 transition" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-earth-900 text-white font-bold uppercase tracking-wider py-4 hover:bg-earth-800 transition">
+                            Send Enquiry
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Column -->
+                <div class="lg:w-2/5 flex flex-col gap-8 reveal reveal-delay-200">
+                    <div class="bg-earth-900 text-white p-8 lg:p-10 flex-grow shadow-lg">
+                        <h3 class="font-heading text-2xl mb-8">Contact Details</h3>
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-phone-alt text-earth-400 text-lg mt-1"></i>
+                                <div>
+                                    <p class="text-xs text-earth-300 font-bold uppercase tracking-wider mb-1">Call Us</p>
+                                    <a href="tel:07941093343" class="text-xl font-bold text-white hover:text-earth-400 transition">07941 093343</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-map-marker-alt text-earth-400 text-lg mt-1"></i>
+                                <div>
+                                    <p class="text-xs text-earth-300 font-bold uppercase tracking-wider mb-1">Location</p>
+                                    <p class="text-lg text-earth-50">72 The Slade, Headington<br>Oxford OX3 7DX</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-clock text-earth-400 text-lg mt-1"></i>
+                                <div>
+                                    <p class="text-xs text-earth-300 font-bold uppercase tracking-wider mb-1">Hours</p>
+                                    <p class="text-lg text-earth-50">Opens 7:00 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Map -->
+                    <div class="h-64 lg:h-auto lg:flex-grow border border-earth-200 shadow-md">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2469.7547076721595!2d-1.2052445842278453!3d51.75582377967664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876c6b3f7f07c81%3A0xcb7ab30a7d97607a!2s72%20The%20Slade%2C%20Headington%2C%20Oxford%20OX3%207DX%2C%20UK!5e0!3m2!1sen!2sus!4v1689721000000!5m2!1sen!2sus" 
+                            class="w-full h-full border-0" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-earth-950 text-earth-300 py-10 text-center reveal">
+        <div class="flex justify-center mb-3">
+            <img src="logo.jpg" alt="Oxford My Garden Logo" class="h-14 w-14 rounded-full object-cover border-2 border-earth-600">
+        </div>
+        <p class="font-heading text-xl text-white mb-1">Oxford My Garden</p>
+        <p class="text-xs text-earth-500 uppercase tracking-wider mb-4">Landscaping & Garden Care · Oxford</p>
+        <p class="text-xs text-earth-600">&copy; 2026. All rights reserved.</p>
+    </footer>
+
+    <!-- ===== MOBILE STICKY CTA ===== -->
+    <div class="fixed bottom-0 left-0 right-0 bg-earth-950 border-t border-earth-700 p-3 flex gap-3 md:hidden z-50">
+        <a href="tel:07941093343" class="flex-1 bg-earth-700 text-white py-3 font-bold text-center flex items-center justify-center gap-2">
+            <i class="fas fa-phone-alt"></i> Call Now
+        </a>
+        <a href="https://wa.me/4407941093343" target="_blank" class="flex-1 bg-[#25D366] text-white py-3 font-bold text-center flex items-center justify-center gap-2">
+            <i class="fab fa-whatsapp text-lg"></i> WhatsApp
+        </a>
+    </div>
+
+    <!-- ===== SCROLL ANIMATIONS SCRIPT ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: stop observing once revealed
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
