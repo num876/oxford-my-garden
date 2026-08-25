@@ -4,92 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oxford My Garden | Landscaping & Garden Care</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        heading: ['"DM Serif Display"', 'serif'],
-                        body: ['"Nunito Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        earth: {
-                            950: '#2C1B0E',
-                            900: '#3E2723',
-                            800: '#4E342E',
-                            700: '#5D4037',
-                            600: '#6D4C41',
-                            500: '#795548',
-                            400: '#A1887F',
-                            300: '#BCAAA4',
-                            200: '#D7CCC8',
-                            100: '#EFEBE9',
-                            50:  '#FAF8F6',
-                        }
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Ken Burns */
-        @keyframes kenBurns {
-            0%   { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-        .animate-ken-burns { animation: kenBurns 25s ease-in-out infinite alternate; }
-
-        /* Fade in up */
-        @keyframes fadeInUp {
-            0%   { opacity: 0; transform: translateY(24px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .anim-up { opacity: 0; animation: fadeInUp 0.7s ease-out forwards; }
-
-        /* Floating leaves */
-        @keyframes leafDrift {
-            0%   { transform: translateY(0) rotate(0deg); opacity: 0.5; }
-            50%  { transform: translateY(-50px) rotate(180deg); opacity: 0.25; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-        }
-        .leaf-float {
-            position: absolute;
-            color: rgba(139, 90, 43, 0.3);
-            animation: leafDrift linear infinite;
-            pointer-events: none;
-        }
-
-        /* Scroll Reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-delay-100 { transition-delay: 100ms; }
-        .reveal-delay-200 { transition-delay: 200ms; }
-        .reveal-delay-300 { transition-delay: 300ms; }
-        .reveal-delay-400 { transition-delay: 400ms; }
-
-        /* Trust strip shimmer */
-        @keyframes shimmer {
-            0%   { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        .shimmer-bg {
-            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
-            background-size: 200% 100%;
-            animation: shimmer 4s linear infinite;
-        }
-    </style>
+    <link rel="preload" as="image" href="hero.jpg">
+    <link rel="preload" as="image" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="font-body text-gray-800 bg-earth-50 antialiased">
 
@@ -211,7 +133,7 @@
                 <!-- Image Column -->
                 <div class="lg:w-1/2 relative reveal reveal-delay-200 mt-8 lg:mt-0 max-w-md mx-auto lg:max-w-none">
                     <div class="absolute inset-0 bg-earth-900 transform translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4 z-0"></div>
-                    <img src="about.jpg" alt="Gardening tools and flowers" class="relative z-10 w-full h-auto object-cover border-4 border-white shadow-xl">
+                    <img src="about.jpg" alt="Gardening tools and flowers" class="relative z-10 w-full h-auto object-cover border-4 border-white shadow-xl" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -230,7 +152,7 @@
                 <!-- Service 1 -->
                 <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal">
                     <div class="h-40 sm:h-48 overflow-hidden">
-                        <img src="service-planting.jpg" alt="Garden Tidying & Planting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="service-planting.jpg" alt="Garden Tidying & Planting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
                     </div>
                     <div class="border-l-4 border-earth-700 p-5 sm:p-6 flex-grow flex flex-col">
                         <h3 class="font-heading text-xl sm:text-2xl text-earth-900 mb-2 sm:mb-3">Garden Tidying & Planting</h3>
@@ -243,7 +165,7 @@
                 <!-- Service 2 -->
                 <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal reveal-delay-100">
                     <div class="h-40 sm:h-48 overflow-hidden">
-                        <img src="service-clearance.jpg" alt="Overgrown Clearance" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="service-clearance.jpg" alt="Overgrown Clearance" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
                     </div>
                     <div class="border-l-4 border-earth-700 p-5 sm:p-6 flex-grow flex flex-col">
                         <h3 class="font-heading text-xl sm:text-2xl text-earth-900 mb-2 sm:mb-3">Overgrown Clearance</h3>
@@ -256,7 +178,7 @@
                 <!-- Service 3 -->
                 <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal reveal-delay-200">
                     <div class="h-40 sm:h-48 overflow-hidden">
-                        <img src="service-tree.jpg" alt="Tree Cutting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="service-tree.jpg" alt="Tree Cutting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
                     </div>
                     <div class="border-l-4 border-earth-700 p-5 sm:p-6 flex-grow flex flex-col">
                         <h3 class="font-heading text-xl sm:text-2xl text-earth-900 mb-2 sm:mb-3">Tree Cutting & Surgery</h3>
@@ -269,7 +191,7 @@
                 <!-- Service 4 -->
                 <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal">
                     <div class="h-40 sm:h-48 overflow-hidden">
-                        <img src="service-lawn.jpg" alt="Lawn Care & Maintenance" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="service-lawn.jpg" alt="Lawn Care & Maintenance" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
                     </div>
                     <div class="border-l-4 border-earth-700 p-5 sm:p-6 flex-grow flex flex-col">
                         <h3 class="font-heading text-xl sm:text-2xl text-earth-900 mb-2 sm:mb-3">Lawn Care & Maintenance</h3>
@@ -282,7 +204,7 @@
                 <!-- Service 5 -->
                 <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal reveal-delay-100">
                     <div class="h-40 sm:h-48 overflow-hidden">
-                        <img src="service-hedge.jpg" alt="Hedge Trimming" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="service-hedge.jpg" alt="Hedge Trimming" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
                     </div>
                     <div class="border-l-4 border-earth-700 p-5 sm:p-6 flex-grow flex flex-col">
                         <h3 class="font-heading text-xl sm:text-2xl text-earth-900 mb-2 sm:mb-3">Hedge Trimming</h3>
@@ -295,7 +217,7 @@
                 <!-- Service 6 -->
                 <div class="group bg-white shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-earth-100 flex flex-col reveal reveal-delay-200">
                     <div class="h-40 sm:h-48 overflow-hidden">
-                        <img src="service-patio.jpg" alt="Patios & Paving" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="service-patio.jpg" alt="Patios & Paving" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
                     </div>
                     <div class="border-l-4 border-earth-700 p-5 sm:p-6 flex-grow flex flex-col">
                         <h3 class="font-heading text-xl sm:text-2xl text-earth-900 mb-2 sm:mb-3">Patios & Paving</h3>
@@ -581,7 +503,7 @@
     <!-- ===== FOOTER ===== -->
     <footer class="bg-earth-950 text-earth-300 py-10 text-center reveal">
         <div class="flex justify-center mb-3">
-            <img src="logo.jpg" alt="Oxford My Garden Logo" class="h-14 w-14 rounded-full object-cover border-2 border-earth-600">
+            <img src="logo.jpg" alt="Oxford My Garden Logo" class="h-14 w-14 rounded-full object-cover border-2 border-earth-600" loading="lazy" decoding="async">
         </div>
         <p class="font-heading text-xl text-white mb-1">Oxford My Garden</p>
         <p class="text-xs text-earth-500 uppercase tracking-wider mb-4">Landscaping & Garden Care · Oxford</p>
